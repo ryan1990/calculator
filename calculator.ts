@@ -1,5 +1,30 @@
 class Calculator {
     constructor() {
+        this.bindButtons();
+    };
+
+    //function that displays value 
+    dis(val: any) : void
+    { 
+        document.getElementById("result").value+=val;
+    } 
+
+    //function that evaluates the digit and return result 
+    solve() : void
+    { 
+        let x = document.getElementById("result").value 
+        let y = eval(x) 
+        document.getElementById("result").value = y 
+    } 
+
+    //function that clears the display 
+    clr() : void
+    { 
+        document.getElementById("result").value = "" 
+    } 
+
+    private bindButtons() : void
+    {
         let button1 = document.getElementById("button1");
         button1.addEventListener("click", () => this.dis(1));
 
@@ -50,27 +75,7 @@ class Calculator {
 
         let buttonEquals = document.getElementById("button=");
         buttonEquals.addEventListener("click", () => this.solve());
-    };
-
-    //function that displays value 
-    dis(val: any) : void
-    { 
-        document.getElementById("result").value+=val;
-    } 
-
-    //function that evaluates the digit and return result 
-    solve() : void
-    { 
-        let x = document.getElementById("result").value 
-        let y = eval(x) 
-        document.getElementById("result").value = y 
-    } 
-
-    //function that clears the display 
-    clr() : void
-    { 
-        document.getElementById("result").value = "" 
-    } 
+    }
 }
 
 new Calculator();
